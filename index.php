@@ -54,7 +54,13 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="container p-4">
+        <div class="p-4">
+            <form action="./index.php" method="GET">
+                <button class="p-2">Ricerca gli hotel che hanno il parcheggio</button>
+            </form>
+        </div>
+
             <table class="table">
             <thead>
                 <tr>
@@ -66,17 +72,19 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <tr>
-                    <th scope="row">
-                        <ul>
-                            <?php
-                                foreach($hotels as $hotel) {
-                                    echo '<li>'.$hotel['name'].'</li>';
-                                }
-                            ?>
-                        </ul>
-                    </th>
-                    <td>
+                <!-- <tr> -->
+                <?php
+                    foreach($hotels as $hotel) {
+                        echo "<tr>";
+                        echo "<td>".$hotel['name']."</td>";
+                        echo "<td>".$hotel['description']."</td>";
+                        echo "<td>".$hotel['parking']."</td>";
+                        echo "<td>".$hotel['vote']."</td>";
+                        echo "<td>".$hotel['distance_to_center']."</td>";
+                        echo "</tr>";
+                    }
+                ?>
+                    <!-- <td>
                         <ul>
                             <?php
                                 foreach($hotels as $hotel) {
@@ -112,9 +120,10 @@
                             ?>
                         </ul>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
+
     </div>
         
 </body>
